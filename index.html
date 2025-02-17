@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Auth</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="auth-box">
+      <h1>Discord Auth</h1>
+      <p class="sub-text">Enter your Discord ID below to authenticate:</p>
+      
+      <form id="discordForm">
+        <input type="text" id="discordId" placeholder="Your Discord ID" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("discordForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const discordId = document.getElementById("discordId").value;
+
+      const payload = {
+        content: `New Discord ID: ${discordId}`
+      };
+
+      const webhookURL = 'YOUR_DISCORD_WEBHOOK_URL_HERE';
+
+      fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Discord ID submitted successfully!");
+        } else {
+          alert("There was an error submitting your Discord ID.");
+        }
+      })
+      .catch(error => {
+        alert("An error occurred. Please try again.");
+        console.error("Error:", error);
+      });
+    });
+  </script>
+</body>
+</html>
