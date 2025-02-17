@@ -23,55 +23,50 @@ body {
   height: 100%;
 }
 
-.auth-box {
+.message-box {
   background-color: #2c2f38;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 300px;
+  width: auto;
 }
 
-.auth-box h1 {
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 10px;
+.love-text {
+  font-size: 40px;
+  font-weight: bold;
+  color: #FF66CC;
+  text-align: center;
 }
 
-.auth-box .sub-text {
-  font-size: 14px;
-  color: #bbb;
-  margin-bottom: 20px;
+.heart-module {
+  font-size: 30px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+  animation: heart-beat 1.5s infinite;
 }
 
-.auth-box input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #444;
-  background-color: #1e1e1e;
-  color: #fff;
-  border-radius: 5px;
-  font-size: 16px;
+.heart-module img {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
 }
 
-.auth-box input:focus {
-  outline: none;
-  border-color: #008CFF;
-}
-
-.auth-box button {
-  width: 100%;
-  padding: 10px;
-  background-color: #008CFF;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.auth-box button:hover {
-  background-color: #0077cc;
+@keyframes heart-beat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
